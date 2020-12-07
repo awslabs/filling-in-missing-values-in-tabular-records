@@ -54,7 +54,7 @@ Resources:
           - sagemaker:CreateAutoMLJob
           - sagemaker:DescribeAutoMLJob
           Resource:
-            - !Sub "arn:aws:sagemaker:${AWS::Region}:${AWS::AccountId}:automl-job/${SolutionPrefix}*"
+          - !Sub "arn:aws:sagemaker:${AWS::Region}:${AWS::AccountId}:*"
         - Effect: Allow
           Action:
           - sagemaker:CreateTrainingJob
@@ -145,21 +145,16 @@ Resources:
           - s3:GetBucketLocation
           - s3:ListBucketMultipartUploads
           Resource:
-              - !If
-                - AddTestBucketPermissions
-                - !Sub "arn:aws:s3:::${TestOutputsS3Bucket}"
-                - !Ref "AWS::NoValue"
-              - !If
-                - AddTestBucketPermissions
-                - !Sub "arn:aws:s3:::${TestOutputsS3Bucket}/*"
-                - !Ref "AWS::NoValue"
+          # Update.
+          - !Sub "arn:aws:s3:::*"
+          - !Sub "arn:aws:s3:::*/*"
         # For CI Testing.
         - Effect: Allow
           Action:
           - cloudformation:DescribeStacks
           Resource:
-              # Update.
-              - !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/*/*"
+          # Update.
+          - !Sub "arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/*/*"
 
 
     Metadata:
