@@ -25,7 +25,7 @@ Click on one of the following buttons to *quick create* the AWS CloudFormation S
     <td>Oregon</td>
     <td>us-west-2</td>
     <td align="center">
-      <a href="https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?templateURL=https://sagemaker-solutions-prod-us-west-2.s3.us-west-2.amazonaws.com/filling-in-missing-values/deployment/template.yaml&SolutionName=filling-in-missing-values&CreateNotebookInstance=true">
+      <a href="https://us-west-2.console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?templateURL=https://sagemaker-solutions-prod-us-west-2.s3.us-west-2.amazonaws.com/filling-in-missing-values/deployment/template.yaml&SolutionName=filling-in-missing-values&CreateNotebookInstance=true&StackName=filling-in-missing-values">
         <img src="docs/launch_button.svg" height="30">
       </a>
     </td>
@@ -43,6 +43,8 @@ As part of the solution, the following services are used:
 * Amazon S3: Used to store datasets.
 * Amazon SageMaker Notebook: Used to preprocess and process the data, and to train the deep learning model.
 * Amazon SageMaker Endpoint: Used to deploy the trained model.
+
+![](sagemaker/docs/architecture.png)
 
 ## License
 
